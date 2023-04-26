@@ -28,9 +28,6 @@ export const signUp = async (req, res, next) => {
 
     // confimation
     const token = tokenGeneration({ payload: { _id: newUser._id, email: newUser.email } })
-     ({
-        token
-    });
     if (!token) {
         return next(new Error('Token Generation Fail', { cause: 400 }))
     }
